@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-inter);
+
+  --color-terracotta-50: #fbf2e7;
+  --color-terracotta-100: #f6e0c5;
+  --color-terracotta-200: #ecbf91;
+  --color-terracotta-300: #e0a468;
+  --color-terracotta-400: #d68d4a;
+  --color-terracotta-500: #d18b4e;
+  --color-terracotta-600: #b5703a;
+  --color-terracotta-700: #8f562b;
+  --color-terracotta-800: #6a4022;
+  --color-terracotta-900: #482b18;
+
+  --color-teal-50: #effafd;
+  --color-teal-100: #d3f0f5;
+  --color-teal-200: #a3dde7;
+  --color-teal-300: #6ec3d3;
+  --color-teal-400: #45a4b9;
+  --color-teal-500: #2d7186;
+  --color-teal-600: #25606f;
+  --color-teal-700: #1f5566;
+  --color-teal-800: #1a4451;
+  --color-teal-900: #14333d;
+
+  --color-navy-50: #eef3f5;
+  --color-navy-500: #1e3a47;
+  --color-navy-700: #14272f;
+  --color-navy-900: #0a141a;
+
+  --color-blush-50: #fdf6f4;
+  --color-blush-100: #faeae7;
+  --color-blush-200: #f4d5d0;
+  --color-blush-300: #ecbab2;
+  --color-blush-400: #e29c91;
+
+  --color-cream-50: #fdfaf6;
+  --color-cream-100: #faf6f1;
+  --color-cream-200: #f3ebde;
+}
+
+:root {
+  --background: var(--color-cream-100);
+  --foreground: var(--color-navy-700);
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+@utility font-display {
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+  font-optical-sizing: auto;
+  font-variation-settings: "SOFT" 50, "WONK" 0;
+}
