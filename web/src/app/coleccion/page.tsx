@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { SectionHeader } from "@/components/section-header";
 import { ProductGrid } from "@/components/product-grid";
-import { PRODUCTOS } from "@/lib/products";
+import { productosVisibles } from "@/lib/products";
 
 export const metadata: Metadata = {
   title: "Colección",
@@ -18,7 +18,7 @@ export default function ColeccionPage() {
         subtitle="Cada prenda lleva la huella del Huila. Recorre todas las líneas en un solo lugar."
       />
       <div className="mt-14">
-        <ProductGrid productos={PRODUCTOS} />
+        <ProductGrid productos={productosVisibles()} />
       </div>
     </section>
   );

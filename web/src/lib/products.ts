@@ -24,6 +24,8 @@ export type Producto = {
   colores?: ColorOption[];
   tallas: string[];
   destacado?: boolean;
+  /** Si true, no aparece en listas (catálogo/destacados/relacionados) pero sí por URL directa. */
+  oculto?: boolean;
 };
 
 export const COLORES_COLA_IMPERIAL: ColorOption[] = [
@@ -157,18 +159,39 @@ export const PRODUCTOS: Producto[] = [
       "Estampado con frailejones del páramo colombiano. Para los amantes de las alturas y los paisajes únicos de nuestra cordillera.",
     tallas: TALLAS_ELLOS,
   },
+  {
+    slug: "test-bold",
+    ref: "TEST-BOLD",
+    nombre: "Producto de prueba — Test de pago Bold",
+    linea: "ellas",
+    categoria: "camisa",
+    precioCentavos: 100_000, // $1.000 COP
+    imagen: "/products/camisa-sanjuanero.jpg",
+    imagenAlt: "Producto de prueba para validar la pasarela de pago",
+    descripcion:
+      "Producto TEMPORAL para validar el flujo de pago con Bold. NO es un producto real. Si lo compraste por error, escríbenos por WhatsApp y te reembolsamos al instante. Será eliminado cuando se confirme que la pasarela funciona.",
+    tallas: ["Única"],
+    oculto: true,
+  },
 ];
 
-export const productosDestacados = () => PRODUCTOS.filter((p) => p.destacado);
+/** Productos visibles públicamente (excluye `oculto: true`). */
+export const productosVisibles = () => PRODUCTOS.filter((p) => !p.oculto);
+
+export const productosDestacados = () =>
+  PRODUCTOS.filter((p) => p.destacado && !p.oculto);
 
 export const productosPorLinea = (linea: Linea) =>
-  PRODUCTOS.filter((p) => p.linea === linea);
+  PRODUCTOS.filter((p) => p.linea === linea && !p.oculto);
 
 export const productosPorCategoria = (categoria: Categoria) =>
-  PRODUCTOS.filter((p) => p.categoria === categoria);
+  PRODUCTOS.filter((p) => p.categoria === categoria && !p.oculto);
 
+/** Encuentra cualquier producto por slug, INCLUYENDO los ocultos (acceso por URL directa). */
 export const productoPorSlug = (slug: string) =>
   PRODUCTOS.find((p) => p.slug === slug);
 
 export const productosRelacionados = (slug: string, linea: Linea, limit = 4) =>
-  PRODUCTOS.filter((p) => p.linea === linea && p.slug !== slug).slice(0, limit);
+  PRODUCTOS.filter(
+    (p) => p.linea === linea && p.slug !== slug && !p.oculto,
+  ).slice(0, limit);
