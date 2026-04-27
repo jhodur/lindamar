@@ -10,17 +10,28 @@ import { useCart } from "@/lib/cart-context";
 
 export function ProductDetail({ producto }: { producto: Producto }) {
   const { addItem } = useCart();
+  const tallaUnica = producto.tallas.length === 1;
   const [colorSlug, setColorSlug] = useState<string | undefined>(
     producto.colores?.[0]?.slug,
   );
+  const [talla, setTalla] = useState<string | undefined>(
+    tallaUnica ? producto.tallas[0] : undefined,
+  );
   const [justAdded, setJustAdded] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const colorActual = producto.colores?.find((c) => c.slug === colorSlug);
-  const colorTexto = colorActual ? ` (Color ${colorActual.nombre})` : "";
-  const mensaje = `Hola Lindamar, me interesa la prenda *${producto.nombre}*${colorTexto} (REF ${producto.ref}). ¿Me cuentas tallas y disponibilidad?`;
+  const colorTexto = colorActual ? `, color ${colorActual.nombre}` : "";
+  const tallaTexto = talla && !tallaUnica ? `, talla ${talla}` : "";
+  const mensaje = `Hola Lindamar, me interesa la prenda *${producto.nombre}*${colorTexto}${tallaTexto} (REF ${producto.ref}). ¿Me cuentas disponibilidad?`;
 
   function handleAdd() {
-    addItem({ slug: producto.slug, qty: 1, colorSlug });
+    if (!talla) {
+      setError("Selecciona una talla antes de continuar.");
+      return;
+    }
+    setError(null);
+    addItem({ slug: producto.slug, qty: 1, talla, colorSlug });
     setJustAdded(true);
     window.setTimeout(() => setJustAdded(false), 1500);
   }
@@ -72,6 +83,48 @@ export function ProductDetail({ producto }: { producto: Producto }) {
             ))}
           </div>
         </div>
+      )}
+
+      {!tallaUnica && (
+        <div>
+          <p className="text-sm font-medium text-navy-700">
+            Talla:{" "}
+            <span className="font-normal text-navy-700/70">
+              {talla ?? "selecciona una talla"}
+            </span>
+          </p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {producto.tallas.map((t) => (
+              <button
+                key={t}
+                type="button"
+                onClick={() => {
+                  setTalla(t);
+                  setError(null);
+                }}
+                aria-pressed={t === talla}
+                className={cn(
+                  "min-w-12 rounded-full border-2 px-4 py-2 text-sm font-medium transition-all",
+                  t === talla
+                    ? "border-terracotta-500 bg-terracotta-500 text-cream-100"
+                    : "border-blush-200 text-navy-700 hover:border-terracotta-300",
+                )}
+              >
+                {t}
+              </button>
+            ))}
+          </div>
+          {error && (
+            <p className="mt-2 text-xs text-terracotta-600">{error}</p>
+          )}
+        </div>
+      )}
+
+      {tallaUnica && (
+        <p className="text-sm text-navy-700/70">
+          <span className="font-medium text-navy-700">Talla:</span>{" "}
+          {producto.tallas[0]}
+        </p>
       )}
 
       <div className="flex flex-col gap-3 pt-2 sm:flex-row">

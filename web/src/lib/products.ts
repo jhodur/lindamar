@@ -22,6 +22,7 @@ export type Producto = {
   imagenAlt: string;
   descripcion?: string;
   colores?: ColorOption[];
+  tallas: string[];
   destacado?: boolean;
 };
 
@@ -41,6 +42,10 @@ export const COLORES_COLA_IMPERIAL: ColorOption[] = [
   },
 ];
 
+const TALLAS_ELLAS = ["XS", "S", "M", "L", "XL"];
+const TALLAS_ELLOS = ["S", "M", "L", "XL", "XXL"];
+const TALLAS_UNICA = ["Única"];
+
 export const PRODUCTOS: Producto[] = [
   {
     slug: "cola-imperial-fucsia",
@@ -54,6 +59,7 @@ export const PRODUCTOS: Producto[] = [
     descripcion:
       "Vestido largo de gala con cola desmontable. Diseño Cola Imperial en fucsia vibrante. Confección artesanal en tela ligera y vaporosa, ideal para eventos y ocasiones especiales.",
     colores: COLORES_COLA_IMPERIAL,
+    tallas: TALLAS_UNICA,
     destacado: true,
   },
   {
@@ -68,6 +74,7 @@ export const PRODUCTOS: Producto[] = [
     descripcion:
       "Vestido largo de gala con cola desmontable, en los colores de la bandera del Huila — verde y amarillo. Edición Cola Imperial, una declaración de orgullo opita.",
     colores: COLORES_COLA_IMPERIAL,
+    tallas: TALLAS_UNICA,
     destacado: true,
   },
   {
@@ -81,6 +88,7 @@ export const PRODUCTOS: Producto[] = [
     imagenAlt: "Vestido fucsia con motivos del patrimonio de San Agustín",
     descripcion:
       "Vestido corto con espalda descubierta y cuello halter. Estampado original con motivos del patrimonio agustiniano del Huila — estatuas, fauna y paisajes de la cultura agustiniana.",
+    tallas: TALLAS_ELLAS,
     destacado: true,
   },
   {
@@ -94,6 +102,7 @@ export const PRODUCTOS: Producto[] = [
     imagenAlt: "Kimono largo con estampado patchwork colorido",
     descripcion:
       "Kimono largo en tejido ligero con estampado patchwork de motivos alegres. Versátil — úsalo abierto sobre un body o cerrado como vestido. Ideal para climas cálidos.",
+    tallas: TALLAS_ELLAS,
   },
   {
     slug: "camisa-noche-dorada",
@@ -106,6 +115,7 @@ export const PRODUCTOS: Producto[] = [
     imagenAlt: "Camisa con estampado de girasoles sobre fondo oscuro",
     descripcion:
       "Camisa con estampado de girasoles dorados sobre fondo oscuro. Confección artesanal con tela fresca, perfecta para el día y la noche.",
+    tallas: TALLAS_ELLAS,
   },
   {
     slug: "camisa-sanjuanero",
@@ -118,6 +128,7 @@ export const PRODUCTOS: Producto[] = [
     imagenAlt: "Camisa blanca con bordado del traje típico Sanjuanero",
     descripcion:
       "Camisa blanca con estampado del Sanjuanero — el traje y baile típico del Huila. Una pieza única que celebra la tradición huilense, ideal para llevar la cultura puesta.",
+    tallas: TALLAS_ELLOS,
     destacado: true,
   },
   {
@@ -131,6 +142,7 @@ export const PRODUCTOS: Producto[] = [
     imagenAlt: "Camisa con estampado de fauna del bosque seco tropical",
     descripcion:
       "Estampado inspirado en la fauna y vegetación del bosque seco tropical del Huila. Una camisa para los amantes de la naturaleza colombiana.",
+    tallas: TALLAS_ELLOS,
   },
   {
     slug: "camisa-paramo",
@@ -143,6 +155,7 @@ export const PRODUCTOS: Producto[] = [
     imagenAlt: "Camisa con estampado de frailejones del páramo",
     descripcion:
       "Estampado con frailejones del páramo colombiano. Para los amantes de las alturas y los paisajes únicos de nuestra cordillera.",
+    tallas: TALLAS_ELLOS,
   },
 ];
 

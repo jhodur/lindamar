@@ -18,6 +18,7 @@ export type Order = {
     slug: string;
     nombre: string;
     ref: string;
+    talla: string;
     color?: string;
     qty: number;
     precioCentavos: number;
@@ -27,7 +28,7 @@ export type Order = {
   subtotalCentavos: number;
 };
 
-const ORDER_STORAGE_KEY = "lindamar.lastOrder.v1";
+const ORDER_STORAGE_KEY = "lindamar.lastOrder.v2";
 
 export function generateOrderId(): string {
   const ts = Date.now().toString(36).toUpperCase();
@@ -46,6 +47,7 @@ export function buildOrder(
       slug: d.producto.slug,
       nombre: d.producto.nombre,
       ref: d.producto.ref,
+      talla: d.talla,
       color: d.colorNombre,
       qty: d.qty,
       precioCentavos: d.producto.precioCentavos,
@@ -77,12 +79,14 @@ export function buildWhatsAppOrderMessage(order: Order): string {
   lines.push("");
   lines.push("*Productos*");
   for (const item of order.items) {
-    const colorTxt = item.color ? ` (${item.color})` : "";
+    const variantParts: string[] = [`Talla ${item.talla}`];
+    if (item.color) variantParts.push(item.color);
+    const variant = ` (${variantParts.join(", ")})`;
     const cantTxt =
       item.qty === 1
         ? `1 × ${formatCOP(item.precioCentavos)}`
         : `${item.qty} × ${formatCOP(item.precioCentavos)} = ${formatCOP(item.subtotalCentavos)}`;
-    lines.push(`• ${item.nombre}${colorTxt}`);
+    lines.push(`• ${item.nombre}${variant}`);
     lines.push(`  REF ${item.ref} · ${cantTxt}`);
   }
   lines.push("");

@@ -10,11 +10,12 @@ import {
 } from "react";
 import { PRODUCTOS, type Producto } from "./products";
 
-const STORAGE_KEY = "lindamar.cart.v1";
+const STORAGE_KEY = "lindamar.cart.v2";
 
 export type CartItem = {
   slug: string;
   qty: number;
+  talla: string;
   colorSlug?: string;
 };
 
@@ -32,8 +33,17 @@ type CartContextValue = {
   isOpen: boolean;
   hydrated: boolean;
   addItem: (item: CartItem) => void;
-  updateQty: (slug: string, colorSlug: string | undefined, qty: number) => void;
-  removeItem: (slug: string, colorSlug: string | undefined) => void;
+  updateQty: (
+    slug: string,
+    talla: string,
+    colorSlug: string | undefined,
+    qty: number,
+  ) => void;
+  removeItem: (
+    slug: string,
+    talla: string,
+    colorSlug: string | undefined,
+  ) => void;
   clear: () => void;
   open: () => void;
   close: () => void;
@@ -42,8 +52,8 @@ type CartContextValue = {
 
 const CartContext = createContext<CartContextValue | null>(null);
 
-const itemKey = (slug: string, colorSlug?: string) =>
-  `${slug}::${colorSlug ?? ""}`;
+const itemKey = (slug: string, talla: string, colorSlug?: string) =>
+  `${slug}::${talla}::${colorSlug ?? ""}`;
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
@@ -55,7 +65,16 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) {
         const parsed = JSON.parse(raw);
-        if (Array.isArray(parsed)) setItems(parsed);
+        if (Array.isArray(parsed)) {
+          // Validate items have required fields (talla)
+          const valid = parsed.filter(
+            (i): i is CartItem =>
+              typeof i?.slug === "string" &&
+              typeof i?.qty === "number" &&
+              typeof i?.talla === "string",
+          );
+          setItems(valid);
+        }
       }
     } catch {
       /* localStorage no disponible */
@@ -75,7 +94,9 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const addItem = useCallback((newItem: CartItem) => {
     setItems((prev) => {
       const idx = prev.findIndex(
-        (i) => itemKey(i.slug, i.colorSlug) === itemKey(newItem.slug, newItem.colorSlug),
+        (i) =>
+          itemKey(i.slug, i.talla, i.colorSlug) ===
+          itemKey(newItem.slug, newItem.talla, newItem.colorSlug),
       );
       if (idx >= 0) {
         const next = [...prev];
@@ -88,14 +109,22 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const updateQty = useCallback(
-    (slug: string, colorSlug: string | undefined, qty: number) => {
+    (
+      slug: string,
+      talla: string,
+      colorSlug: string | undefined,
+      qty: number,
+    ) => {
       setItems((prev) =>
         qty <= 0
           ? prev.filter(
-              (i) => itemKey(i.slug, i.colorSlug) !== itemKey(slug, colorSlug),
+              (i) =>
+                itemKey(i.slug, i.talla, i.colorSlug) !==
+                itemKey(slug, talla, colorSlug),
             )
           : prev.map((i) =>
-              itemKey(i.slug, i.colorSlug) === itemKey(slug, colorSlug)
+              itemKey(i.slug, i.talla, i.colorSlug) ===
+              itemKey(slug, talla, colorSlug)
                 ? { ...i, qty }
                 : i,
             ),
@@ -105,10 +134,12 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   );
 
   const removeItem = useCallback(
-    (slug: string, colorSlug: string | undefined) => {
+    (slug: string, talla: string, colorSlug: string | undefined) => {
       setItems((prev) =>
         prev.filter(
-          (i) => itemKey(i.slug, i.colorSlug) !== itemKey(slug, colorSlug),
+          (i) =>
+            itemKey(i.slug, i.talla, i.colorSlug) !==
+            itemKey(slug, talla, colorSlug),
         ),
       );
     },

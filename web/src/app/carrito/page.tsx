@@ -49,7 +49,10 @@ export default function CarritoPage() {
         <div className="mt-10 grid gap-12 lg:grid-cols-[1fr_360px]">
           <ul className="divide-y divide-blush-200">
             {detailed.map((d) => (
-              <li key={`${d.slug}::${d.colorSlug ?? ""}`} className="flex gap-5 py-6">
+              <li
+                key={`${d.slug}::${d.talla}::${d.colorSlug ?? ""}`}
+                className="flex gap-5 py-6"
+              >
                 <Link
                   href={`/producto/${d.producto.slug}`}
                   className="relative aspect-[3/4] w-28 flex-shrink-0 overflow-hidden rounded-lg bg-blush-100 sm:w-32"
@@ -73,17 +76,18 @@ export default function CarritoPage() {
                     <p className="mt-0.5 text-xs uppercase tracking-wider text-navy-700/50">
                       REF · {d.producto.ref}
                     </p>
-                    {d.colorNombre && (
-                      <p className="mt-1 text-sm text-navy-700/70">
-                        Color: {d.colorNombre}
-                      </p>
-                    )}
+                    <p className="mt-1 text-sm text-navy-700/70">
+                      Talla: <span className="font-medium text-navy-700">{d.talla}</span>
+                      {d.colorNombre && (
+                        <> · Color: <span className="font-medium text-navy-700">{d.colorNombre}</span></>
+                      )}
+                    </p>
                   </div>
                   <div className="flex items-end justify-between gap-4">
                     <div className="inline-flex items-center rounded-full border border-blush-200">
                       <button
                         type="button"
-                        onClick={() => updateQty(d.slug, d.colorSlug, d.qty - 1)}
+                        onClick={() => updateQty(d.slug, d.talla, d.colorSlug, d.qty - 1)}
                         aria-label="Restar uno"
                         className="flex h-9 w-9 items-center justify-center text-navy-700/70 hover:text-terracotta-600"
                       >
@@ -94,7 +98,7 @@ export default function CarritoPage() {
                       </span>
                       <button
                         type="button"
-                        onClick={() => updateQty(d.slug, d.colorSlug, d.qty + 1)}
+                        onClick={() => updateQty(d.slug, d.talla, d.colorSlug, d.qty + 1)}
                         aria-label="Sumar uno"
                         className="flex h-9 w-9 items-center justify-center text-navy-700/70 hover:text-terracotta-600"
                       >
@@ -107,7 +111,7 @@ export default function CarritoPage() {
                       </p>
                       <button
                         type="button"
-                        onClick={() => removeItem(d.slug, d.colorSlug)}
+                        onClick={() => removeItem(d.slug, d.talla, d.colorSlug)}
                         className="mt-1 inline-flex items-center gap-1 text-xs text-navy-700/50 hover:text-terracotta-600"
                       >
                         <Trash2 className="h-3 w-3" />

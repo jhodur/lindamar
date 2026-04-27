@@ -80,11 +80,14 @@ export function CartDrawer() {
             <div className="flex-1 overflow-y-auto px-6 py-5">
               <ul className="space-y-5">
                 {detailed.map((d) => (
-                  <li key={`${d.slug}::${d.colorSlug ?? ""}`} className="flex gap-4">
+                  <li
+                    key={`${d.slug}::${d.talla}::${d.colorSlug ?? ""}`}
+                    className="flex gap-4"
+                  >
                     <Link
                       href={`/producto/${d.producto.slug}`}
                       onClick={close}
-                      className="relative h-28 w-22 flex-shrink-0 overflow-hidden rounded-lg bg-blush-100"
+                      className="relative h-28 flex-shrink-0 overflow-hidden rounded-lg bg-blush-100"
                       style={{ width: "5.5rem" }}
                     >
                       <Image
@@ -103,11 +106,12 @@ export function CartDrawer() {
                       >
                         {d.producto.nombre}
                       </Link>
-                      {d.colorNombre && (
-                        <p className="mt-0.5 text-xs text-navy-700/60">
-                          Color: {d.colorNombre}
-                        </p>
-                      )}
+                      <p className="mt-0.5 text-xs text-navy-700/60">
+                        Talla: <span className="font-medium text-navy-700/80">{d.talla}</span>
+                        {d.colorNombre && (
+                          <> · Color: <span className="font-medium text-navy-700/80">{d.colorNombre}</span></>
+                        )}
+                      </p>
                       <p className="mt-1 text-sm font-medium text-teal-600">
                         {formatCOP(d.subtotalCentavos)}
                       </p>
@@ -115,7 +119,7 @@ export function CartDrawer() {
                         <div className="inline-flex items-center rounded-full border border-blush-200">
                           <button
                             type="button"
-                            onClick={() => updateQty(d.slug, d.colorSlug, d.qty - 1)}
+                            onClick={() => updateQty(d.slug, d.talla, d.colorSlug, d.qty - 1)}
                             aria-label="Restar uno"
                             className="flex h-8 w-8 items-center justify-center text-navy-700/70 hover:text-terracotta-600"
                           >
@@ -126,7 +130,7 @@ export function CartDrawer() {
                           </span>
                           <button
                             type="button"
-                            onClick={() => updateQty(d.slug, d.colorSlug, d.qty + 1)}
+                            onClick={() => updateQty(d.slug, d.talla, d.colorSlug, d.qty + 1)}
                             aria-label="Sumar uno"
                             className="flex h-8 w-8 items-center justify-center text-navy-700/70 hover:text-terracotta-600"
                           >
@@ -135,7 +139,7 @@ export function CartDrawer() {
                         </div>
                         <button
                           type="button"
-                          onClick={() => removeItem(d.slug, d.colorSlug)}
+                          onClick={() => removeItem(d.slug, d.talla, d.colorSlug)}
                           aria-label="Eliminar prenda"
                           className="text-navy-700/50 hover:text-terracotta-600"
                         >

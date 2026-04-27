@@ -35,7 +35,7 @@ E-commerce real (carrito + checkout + pasarela de pago). El sitio debe transmiti
 - **Auth**: Auth.js (NextAuth v5) — clientes y admin
 - **Imágenes**: `next/image` + almacenamiento en bucket S3-compatible (MinIO en EasyPanel) o Cloudinary
 - **Email transaccional**: Resend (confirmación de orden, recuperación de password)
-- **Empaquetado**: Docker (multi-stage) → EasyPanel en Hostinger VPS
+- **Despliegue**: Vercel (proyecto `lindamar`, root `web/`). Dockerfile se conserva como respaldo para EasyPanel/auto-host.
 
 ### Decisiones técnicas no negociables
 
@@ -98,14 +98,14 @@ docker compose up -d     # Postgres + MinIO local
 
 ## Despliegue
 
-- **Hosting**: VPS Hostinger con **EasyPanel**.
-- **Build**: Dockerfile multi-stage (deps → build → runtime con `node:20-alpine`).
-- **Servicios en EasyPanel**:
-  1. App Next.js (este repo)
-  2. PostgreSQL
-  3. MinIO (o usar Cloudinary externo)
-- **Variables de entorno** (no commitear): `DATABASE_URL`, `BOLD_API_KEY`, `BOLD_WEBHOOK_SECRET`, `AUTH_SECRET`, `RESEND_API_KEY`, `S3_*`.
-- **Dominio**: **`lindamar.com.co`** (compra en curso en Hostinger). Una vez activo, apuntar al EasyPanel y configurar TLS (Let's Encrypt automático).
+- **Hosting**: **Vercel** (Hobby plan, team `team_WODHnbXVJZMU1VcwmHcCHapb`). Proyecto `lindamar` (`prj_KLE2P8kW32GdIy8rDoEwl8Y2htkK`).
+- **Repo**: https://github.com/jhodur/lindamar (público, branch `main`, root `web/`).
+- **Deploy actual**: https://lindamar.vercel.app
+- **Dominio prod**: `lindamar.com.co` (DNS apunta a Vercel `76.76.21.21`).
+- **Build**: el Next.js standalone que Vercel detecta automáticamente. El `web/Dockerfile` se conserva como respaldo si en algún momento se migra a auto-host (EasyPanel, Fly, Railway, etc.).
+- **Variables de entorno** (no commitear, configurar en Vercel dashboard cuando lleguen): `DATABASE_URL`, `BOLD_API_KEY`, `BOLD_WEBHOOK_SECRET`, `AUTH_SECRET`, `RESEND_API_KEY`, `S3_*`.
+- **Deploy manual**: desde `web/` ejecutar `npx vercel --prod --yes --token $TOKEN --scope team_WODHnbXVJZMU1VcwmHcCHapb`. Token en `$APPDATA/com.vercel.cli/Data/auth.json`.
+- **Auto-deploy en push**: pendiente de instalar la GitHub App de Vercel (https://github.com/apps/vercel) en la cuenta `jhodur` y linkear el repo desde Vercel UI.
 
 ## Convenciones
 
