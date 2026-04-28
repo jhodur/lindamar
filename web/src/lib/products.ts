@@ -59,7 +59,7 @@ const COLA_IMPERIAL_DESC =
   "Vestido largo de gala con cola desmontable. Confección artesanal en tela ligera y vaporosa, ideal para eventos y ocasiones especiales. Disponible en 7 colores.";
 
 export const PRODUCTOS: Producto[] = [
-  // ===== COLA IMPERIAL — 7 colores, cada uno como producto independiente con su foto =====
+  // ===== COLA IMPERIAL — 7 colores =====
   {
     slug: "cola-imperial-rojo",
     ref: "COLA IMPERIAL ROJO",
@@ -157,38 +157,54 @@ export const PRODUCTOS: Producto[] = [
     tallas: TALLAS_UNICA,
   },
 
-  // ===== VESTIDO MIDI =====
+  // ===== VESTIDOS MIDI MUJER =====
   {
-    slug: "vestido-san-agustin",
-    ref: "SAN AGUSTÍN",
-    nombre: "Vestido San Agustín",
+    slug: "vestido-alma-agustiniana",
+    ref: "ALMA AGUSTINIANA",
+    nombre: "Vestido Alma Agustiniana",
     linea: "ellas",
     categoria: "vestido",
     precioCentavos: 18_000_000,
-    imagen: "/products/vestido-san-agustin.jpg",
-    imagenAlt: "Vestido fucsia con motivos del patrimonio de San Agustín",
+    imagen: "/products/vestido-alma-agustiniana.jpg",
+    imagenAlt:
+      "Vestido fucsia con motivos del patrimonio de San Agustín y simio escultura",
     descripcion:
       "Vestido corto con espalda descubierta y cuello halter. Estampado original con motivos del patrimonio agustiniano del Huila — estatuas, fauna y paisajes de la cultura agustiniana.",
     tallas: TALLAS_ELLAS,
+    destacado: true,
+  },
+  {
+    slug: "vestido-dulce-caos",
+    ref: "DULCE CAOS",
+    nombre: "Vestido Dulce Caos",
+    linea: "ellas",
+    categoria: "vestido",
+    precioCentavos: 18_000_000,
+    imagen: "/products/vestido-dulce-caos.jpg",
+    imagenAlt:
+      "Vestido midi negro con estampado de motivos infantiles alegres",
+    descripcion:
+      "Vestido midi de tirantes con estampado vibrante — arcoíris, soles, dinosaurios, abejas y flores sobre fondo negro. Para quien lleva la alegría con orgullo.",
+    tallas: TALLAS_ELLAS,
   },
 
-  // ===== KIMONOS — esperando fotos =====
+  // ===== KIMONOS =====
   {
-    slug: "kimono-patchwork",
-    ref: "KIMONO PATCHWORK",
-    nombre: "Kimono Patchwork",
+    slug: "kimono-tropipop",
+    ref: "TROPIPOP",
+    nombre: "Kimono TROPIpop",
     linea: "ellas",
     categoria: "kimono",
     precioCentavos: 16_000_000,
-    imagen: "/products/kimono-patchwork.jpg",
-    imagenAlt: "Kimono largo con estampado patchwork colorido",
+    imagen: "/products/kimono-tropipop.jpg",
+    imagenAlt: "Kimono largo con estampado patchwork colorido TROPIpop",
     descripcion:
-      "Kimono largo en tejido ligero con estampado patchwork de motivos alegres. Versátil — úsalo abierto sobre un body o cerrado como vestido. Ideal para climas cálidos.",
+      "Kimono largo en tejido ligero con estampado patchwork de motivos alegres — corazones, soles, flores y geometrías. Versátil: úsalo abierto sobre un body o cerrado como vestido. Ideal para climas cálidos.",
     tallas: TALLAS_ELLAS,
-    fotosPendientes: true,
+    destacado: true,
   },
 
-  // ===== CAMISAS MUJER — todas con foto profesional nueva =====
+  // ===== CAMISAS MUJER =====
   {
     slug: "camisa-heliconias",
     ref: "HELICONIAS",
@@ -270,51 +286,78 @@ export const PRODUCTOS: Producto[] = [
     destacado: true,
   },
 
-  // ===== CAMISAS HOMBRE — esperando fotos profesionales =====
-  // Mantenemos catálogo activo con placeholders del WhatsApp hasta que lleguen las fotos pro
+  // ===== CAMISAS HOMBRE — 5 líneas reales con foto pro =====
   {
-    slug: "camisa-sanjuanero",
-    ref: "SANJUANERO",
-    nombre: "Camisa Sanjuanero",
-    linea: "ellos",
-    categoria: "camisa",
-    precioCentavos: 10_800_000,
-    imagen: "/products/camisa-sanjuanero.jpg",
-    imagenAlt: "Camisa blanca con bordado del traje típico Sanjuanero",
-    descripcion:
-      "Camisa blanca con estampado del Sanjuanero — el traje y baile típico del Huila. Una pieza única que celebra la tradición huilense.",
-    tallas: TALLAS_ELLOS,
-    fotosPendientes: true,
-  },
-  {
-    slug: "camisa-bosque-seco-tropical",
-    ref: "BOSQUE SECO TROPICAL",
-    nombre: "Camisa Bosque Seco Tropical",
+    slug: "camisa-aires-de-san-pedro",
+    ref: "AIRES DE SAN PEDRO",
+    nombre: "Camisa Aires de San Pedro",
     linea: "ellos",
     categoria: "camisa",
     precioCentavos: 12_000_000,
-    imagen: "/products/camisa-bosque-seco.jpg",
-    imagenAlt: "Camisa con estampado de fauna del bosque seco tropical",
+    imagen: "/products/camisa-aires-de-san-pedro.jpg",
+    imagenAlt:
+      "Camisa blanca con estampado de bailarines del Sanjuanero y motivos del Huila",
     descripcion:
-      "Estampado inspirado en la fauna y vegetación del bosque seco tropical del Huila.",
+      "Camisa blanca con estampado de los bailarines del Sanjuanero y el patrimonio musical del Huila. Una pieza única que celebra el San Pedro huilense.",
     tallas: TALLAS_ELLOS,
-    fotosPendientes: true,
-    // Oculta hasta que llegue la foto pro de hombre — el placeholder actual es un vestido de mujer (mal asignado)
-    oculto: true,
+    destacado: true,
   },
   {
-    slug: "camisa-paramo",
-    ref: "PÁRAMO",
-    nombre: "Camisa Páramo",
+    slug: "camisa-orgullo-opita",
+    ref: "ORGULLO OPITA",
+    nombre: "Camisa Orgullo Opita",
     linea: "ellos",
     categoria: "camisa",
     precioCentavos: 12_000_000,
-    imagen: "/products/camisa-paramo.jpg",
-    imagenAlt: "Camisa con estampado de frailejones del páramo",
+    imagen: "/products/camisa-orgullo-opita.jpg",
+    imagenAlt:
+      "Camisa con estampado de la mujer Sanjuanera y abuelo del Huila",
     descripcion:
-      "Estampado con frailejones del páramo colombiano. Para los amantes de las alturas.",
+      "Estampado dedicado a la mujer Sanjuanera y los personajes que dan vida al folclor opita. Llevar Orgullo Opita es llevar el alma del Huila.",
     tallas: TALLAS_ELLOS,
-    fotosPendientes: true,
+  },
+  {
+    slug: "camisa-tierra-de-contrastes-hombre",
+    ref: "TIERRA DE CONTRASTES",
+    nombre: "Camisa Tierra de Contrastes",
+    linea: "ellos",
+    categoria: "camisa",
+    precioCentavos: 12_000_000,
+    imagen: "/products/camisa-tierra-de-contrastes-hombre.jpg",
+    imagenAlt:
+      "Camisa hombre con estampado Tierra de Contrastes — paisajes del Huila",
+    descripcion:
+      "Estampado que celebra los contrastes geográficos y culturales del Huila — del páramo al desierto, del campo al pueblo.",
+    tallas: TALLAS_ELLOS,
+  },
+  {
+    slug: "camisa-noche-dorada-hombre",
+    ref: "NOCHE DORADA",
+    nombre: "Camisa Noche Dorada",
+    linea: "ellos",
+    categoria: "camisa",
+    precioCentavos: 12_000_000,
+    imagen: "/products/camisa-noche-dorada-hombre.jpg",
+    imagenAlt:
+      "Camisa hombre negra con estampado de girasoles y mariposas",
+    descripcion:
+      "Camisa con estampado de girasoles dorados sobre fondo oscuro. Versión hombre.",
+    tallas: TALLAS_ELLOS,
+    destacado: true,
+  },
+  {
+    slug: "camisa-pasion-carmesi-hombre",
+    ref: "PASIÓN CARMESÍ",
+    nombre: "Camisa Pasión Carmesí",
+    linea: "ellos",
+    categoria: "camisa",
+    precioCentavos: 12_000_000,
+    imagen: "/products/camisa-pasion-carmesi-hombre.jpg",
+    imagenAlt:
+      "Camisa hombre azul claro con estampado de rosas rojas",
+    descripcion:
+      "Estampado floral apasionado de rosas rojas sobre azul claro. Versión hombre.",
+    tallas: TALLAS_ELLOS,
   },
 ];
 
