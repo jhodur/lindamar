@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { ProductCard } from "@/components/product-card";
+import { ReviewsSection } from "@/components/reviews-section";
 import { productosDestacados } from "@/lib/products";
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
       <Hero />
       <LineasEllasEllos />
       <Destacados productos={destacados} />
+      <ReviewsSection />
       <NuestraHistoria />
     </>
   );
