@@ -2,7 +2,7 @@ import Link from "next/link";
 import { MessageCircle, Mail, Star } from "lucide-react";
 import { whatsappLink, WHATSAPP_DISPLAY } from "@/lib/whatsapp";
 
-const GOOGLE_REVIEW_URL = "https://share.google/RBgkR849F3GFlXwCI";
+const GOOGLE_REVIEW_URL = "https://g.page/r/CakqDxt-beSJEAE/review";
 
 function InstagramIcon({ className }: { className?: string }) {
   return (

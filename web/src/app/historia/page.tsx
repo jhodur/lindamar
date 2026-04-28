@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ArrowRight, MessageCircle, Star } from "lucide-react";
 import { whatsappLink } from "@/lib/whatsapp";
 
-const GOOGLE_REVIEW_URL = "https://share.google/RBgkR849F3GFlXwCI";
+const GOOGLE_REVIEW_URL = "https://g.page/r/CakqDxt-beSJEAE/review";
 
 export const metadata: Metadata = {
   title: "Nuestra Historia",
