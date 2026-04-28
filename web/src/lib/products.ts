@@ -299,6 +299,8 @@ export const PRODUCTOS: Producto[] = [
       "Estampado inspirado en la fauna y vegetación del bosque seco tropical del Huila.",
     tallas: TALLAS_ELLOS,
     fotosPendientes: true,
+    // Oculta hasta que llegue la foto pro de hombre — el placeholder actual es un vestido de mujer (mal asignado)
+    oculto: true,
   },
   {
     slug: "camisa-paramo",
@@ -327,6 +329,14 @@ export const productosPorLinea = (linea: Linea) =>
 
 export const productosPorCategoria = (categoria: Categoria) =>
   PRODUCTOS.filter((p) => p.categoria === categoria && !p.oculto);
+
+export const productosPorLineaYCategoria = (
+  linea: Linea,
+  categoria: Categoria,
+) =>
+  PRODUCTOS.filter(
+    (p) => p.linea === linea && p.categoria === categoria && !p.oculto,
+  );
 
 /** Encuentra cualquier producto por slug, INCLUYENDO los ocultos (acceso por URL directa). */
 export const productoPorSlug = (slug: string) =>
