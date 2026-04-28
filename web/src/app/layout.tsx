@@ -25,12 +25,12 @@ export const metadata: Metadata = {
     template: "%s · Lindamar",
   },
   description:
-    "Tienda online de Lindamar Clothing Line: ropa con identidad cultural opita, diseñada en el Huila, Colombia. Vestidos Cola Imperial, camisas y kimonos.",
+    "Tienda online de Lindamar Clothing Line: ropa con identidad cultural colombiana. Vestidos Cola Imperial, camisas y kimonos inspirados en los paisajes, el folclor y el patrimonio de Colombia.",
   metadataBase: new URL("https://lindamar.com.co"),
   openGraph: {
     title: "Lindamar · Amor por el Terruño",
     description:
-      "Diseño opita con identidad cultural colombiana. Vestidos, camisas y kimonos.",
+      "Diseño colombiano con identidad cultural. Vestidos, camisas y kimonos que celebran nuestra tierra.",
     locale: "es_CO",
     type: "website",
   },

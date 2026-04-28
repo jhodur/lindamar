@@ -26,7 +26,7 @@ export default function ColaImperialPage() {
         <SectionHeader
           eyebrow="Línea Exclusiva"
           title="Cola Imperial"
-          subtitle="Vestidos largos de gala con cola desmontable. Una sola silueta, cuatro maneras de llevar al Huila contigo."
+          subtitle="Vestidos largos de gala con cola desmontable. Una sola silueta, siete colores para llevar a Colombia con orgullo."
         />
 
         <div className="mt-12 flex flex-wrap items-center gap-4">

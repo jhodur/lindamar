@@ -169,7 +169,7 @@ export const PRODUCTOS: Producto[] = [
     imagenAlt:
       "Vestido fucsia con motivos del patrimonio de San Agustín y simio escultura",
     descripcion:
-      "Vestido corto con espalda descubierta y cuello halter. Estampado original con motivos del patrimonio agustiniano del Huila — estatuas, fauna y paisajes de la cultura agustiniana.",
+      "Vestido corto con espalda descubierta y cuello halter. Estampado original con motivos del patrimonio arqueológico de San Agustín — estatuas, fauna y paisajes de la cultura agustiniana, declarada Patrimonio de la Humanidad por la UNESCO.",
     tallas: TALLAS_ELLAS,
     destacado: true,
   },
@@ -242,7 +242,7 @@ export const PRODUCTOS: Producto[] = [
     imagen: "/products/camisa-tierra-de-contrastes.jpg",
     imagenAlt: "Camisa con estampado Tierra de Contrastes",
     descripcion:
-      "Estampado que celebra los contrastes geográficos y culturales del Huila — del páramo al desierto.",
+      "Estampado que celebra los contrastes geográficos y culturales de Colombia — del páramo al desierto, del altiplano al Caribe.",
     tallas: TALLAS_ELLAS,
   },
   {
@@ -327,7 +327,7 @@ export const PRODUCTOS: Producto[] = [
     imagenAlt:
       "Camisa hombre con estampado Tierra de Contrastes — paisajes del Huila",
     descripcion:
-      "Estampado que celebra los contrastes geográficos y culturales del Huila — del páramo al desierto, del campo al pueblo.",
+      "Estampado que celebra los contrastes geográficos y culturales de Colombia — del páramo al desierto, del campo al pueblo.",
     tallas: TALLAS_ELLOS,
   },
   {

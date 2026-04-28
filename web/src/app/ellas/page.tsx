@@ -26,7 +26,7 @@ export default function EllasPage() {
       <SectionHeader
         eyebrow="Línea"
         title="Ellas"
-        subtitle="Vestidos, camisas y kimonos que celebran a la mujer colombiana, con la fuerza visual del Huila tejida en cada estampado."
+        subtitle="Vestidos, camisas y kimonos que celebran a la mujer colombiana, con la fuerza visual de nuestros paisajes y patrimonio tejida en cada estampado."
       />
 
       <CategoryBlock
@@ -43,7 +43,7 @@ export default function EllasPage() {
 
       <CategoryBlock
         title="Camisas"
-        subtitle="Estampados originales del Huila — Heliconias, Sol y Luna, y más."
+        subtitle="Estampados originales — Heliconias, Sol y Luna, Tierra de Contrastes y más."
         productos={camisas}
       />
 

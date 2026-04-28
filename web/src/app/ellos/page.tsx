@@ -16,7 +16,7 @@ export default function EllosPage() {
       <SectionHeader
         eyebrow="Línea"
         title="Ellos"
-        subtitle="Camisas con estampados del Sanjuanero, el páramo, las heliconias y los paisajes que nos hacen huilenses."
+        subtitle="Camisas con estampados de nuestro folclor, paisajes y símbolos que nos hacen colombianos."
       />
       <div className="mt-14">
         <ProductGrid productos={productos} />

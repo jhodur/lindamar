@@ -37,8 +37,8 @@ export function Footer() {
             Amor por el Terruño
           </p>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-navy-700/80">
-            Diseño opita con identidad cultural colombiana. Cada prenda cuenta
-            una historia del Huila.
+            Diseño colombiano con identidad cultural. Cada prenda cuenta una
+            historia de nuestra tierra.
           </p>
         </div>
 
@@ -147,7 +147,7 @@ export function Footer() {
 
       <div className="border-t border-blush-200/60">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-2 px-5 py-5 text-xs text-navy-700/60 sm:flex-row sm:items-center sm:px-8">
-          <p>© {año} Lindamar Clothing Line. Hecho con amor en Huila, Colombia.</p>
+          <p>© {año} Lindamar Clothing Line. Hecho con amor en Colombia.</p>
           <p>Diseño y desarrollo en proceso</p>
         </div>
       </div>

@@ -40,8 +40,8 @@ function Hero() {
           Amor por el <span className="italic text-terracotta-300">Terruño</span>
         </h1>
         <p className="mt-5 max-w-xl text-base leading-relaxed text-cream-100/90 sm:text-lg">
-          Diseño opita con identidad cultural colombiana. Cada prenda lleva la
-          huella del Huila — sus paisajes, su patrimonio, su gente.
+          Diseño colombiano con identidad cultural. Cada prenda celebra nuestros
+          paisajes, nuestro patrimonio y nuestra gente.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
           <Link
@@ -85,7 +85,7 @@ function LineasEllasEllos() {
             </p>
             <h2 className="mt-2 font-display text-4xl sm:text-5xl">Ellas</h2>
             <p className="mt-2 max-w-xs text-sm text-cream-100/85">
-              Vestidos, camisas y kimonos que celebran la mujer colombiana.
+              Vestidos, camisas y kimonos que celebran a la mujer colombiana.
             </p>
           </div>
         </Link>
@@ -108,8 +108,8 @@ function LineasEllasEllos() {
             </p>
             <h2 className="mt-2 font-display text-4xl sm:text-5xl">Ellos</h2>
             <p className="mt-2 max-w-xs text-sm text-cream-100/85">
-              Camisas con estampados del Sanjuanero, el páramo y nuestros
-              paisajes.
+              Camisas con estampados de nuestro folclor y los paisajes
+              colombianos.
             </p>
           </div>
         </Link>
@@ -131,7 +131,7 @@ function Destacados({
             Destacados
           </p>
           <h2 className="mt-2 font-display text-3xl text-navy-700 sm:text-4xl">
-            Piezas que hablan del Huila
+            Piezas que hablan de Colombia
           </h2>
         </div>
         <Link
@@ -175,14 +175,14 @@ function NuestraHistoria() {
           </h2>
           <div className="mt-6 space-y-4 text-base leading-relaxed text-navy-700/85">
             <p>
-              Lindamar nace del orgullo opita: una marca de ropa que rinde
-              homenaje a las raíces del Huila. Cada estampado es un pedazo de
-              casa — las estatuas de San Agustín, los frailejones del páramo, el
-              Sanjuanero, las heliconias.
+              Lindamar es una marca colombiana de ropa nacida en el Huila con
+              vocación nacional. Rendimos homenaje a la riqueza cultural y
+              geográfica de Colombia — sus paisajes, su patrimonio, su folclor.
             </p>
             <p>
-              Diseñamos prendas para que lleves nuestra tierra contigo, donde
-              quiera que vayas.
+              Cada estampado es un pedazo de país: las estatuas de San Agustín,
+              los frailejones del páramo, el Sanjuanero, las heliconias. Piezas
+              para llevar Colombia contigo, donde quiera que vayas.
             </p>
           </div>
           <Link
