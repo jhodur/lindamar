@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -10,6 +9,7 @@ import {
 } from "@/lib/products";
 import { ProductDetail } from "@/components/product-detail";
 import { ProductCard } from "@/components/product-card";
+import { ProductGallery } from "@/components/product-gallery";
 
 export function generateStaticParams() {
   return PRODUCTOS.map((p) => ({ slug: p.slug }));
@@ -69,16 +69,10 @@ export default async function ProductoPage({
 
       <section className="mx-auto max-w-7xl px-5 py-12 sm:px-8 sm:py-16">
         <div className="grid gap-12 lg:grid-cols-2">
-          <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-blush-100">
-            <Image
-              src={producto.imagen}
-              alt={producto.imagenAlt}
-              fill
-              priority
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-cover"
-            />
-          </div>
+          <ProductGallery
+            imagenes={[producto.imagen, ...(producto.galeria ?? [])]}
+            alt={producto.imagenAlt}
+          />
           <ProductDetail producto={producto} />
         </div>
       </section>

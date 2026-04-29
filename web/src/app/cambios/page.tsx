@@ -1,59 +1,106 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { MessageCircle } from "lucide-react";
+import {
+  Clock,
+  Camera,
+  Package,
+  AlertCircle,
+  MessageCircle,
+} from "lucide-react";
 import { SectionHeader } from "@/components/section-header";
 import { whatsappLink } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
-  title: "Cambios y devoluciones",
+  title: "Cambios por garantía",
   description:
-    "Política de cambios y devoluciones de Lindamar. Te ayudamos por WhatsApp.",
+    "Política de cambios por garantía de Lindamar — qué hacer si tu prenda llega con algún defecto.",
 };
+
+type InfoBlockProps = {
+  icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+  title: string;
+  children: React.ReactNode;
+};
+
+function InfoBlock({ icon: Icon, title, children }: InfoBlockProps) {
+  return (
+    <div className="rounded-2xl border border-blush-200 bg-cream-50 p-6">
+      <div className="flex items-start gap-4">
+        <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-terracotta-100 text-terracotta-600">
+          <Icon className="h-5 w-5" strokeWidth={1.8} />
+        </span>
+        <div className="min-w-0">
+          <h3 className="font-display text-lg text-navy-700">{title}</h3>
+          <div className="mt-2 text-sm leading-relaxed text-navy-700/80">
+            {children}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function CambiosPage() {
   return (
-    <section className="mx-auto max-w-3xl px-5 py-16 sm:px-8 sm:py-20">
+    <section className="mx-auto max-w-4xl px-5 py-16 sm:px-8 sm:py-20">
       <SectionHeader
-        eyebrow="Cambios y devoluciones"
-        title="Tu prenda perfecta"
-        subtitle="Si la talla o el color no fueron lo esperado, te ayudamos a hacer el cambio."
+        eyebrow="Cambios por garantía"
+        title="Si algo no quedó perfecto"
+        subtitle="Cada prenda Lindamar pasa por revisión antes de despachar. Si aún así detectas un defecto al recibir, así te ayudamos."
       />
 
-      <div className="mt-12 space-y-4 text-base leading-relaxed text-navy-700/80">
-        <p>
-          Aceptamos cambios dentro de los <strong>7 días</strong> siguientes a
-          la recepción de tu pedido, siempre que la prenda esté sin uso, con
-          etiquetas y en su empaque original.
-        </p>
-        <p>
-          Por tratarse de prendas confeccionadas artesanalmente, no realizamos
-          devoluciones en efectivo, pero sí cambios por talla, color u otra
-          referencia equivalente.
-        </p>
-        <p>
-          Para iniciar un cambio, escríbenos por WhatsApp con tu número de
-          pedido y te guiamos paso a paso.
-        </p>
+      <div className="mt-12 grid gap-4 sm:grid-cols-2">
+        <InfoBlock icon={Clock} title="Plazo para reportar">
+          <p>
+            Si la prenda presenta algún defecto, cuentas con{" "}
+            <strong>hasta 7 días</strong> desde la recepción del pedido para
+            reportarlo.
+          </p>
+        </InfoBlock>
+
+        <InfoBlock icon={Camera} title="Validación con evidencia">
+          <p>
+            Es necesario enviar <strong>fotos claras</strong> de la zona
+            defectuosa para gestionar el cambio.
+          </p>
+        </InfoBlock>
+
+        <InfoBlock icon={Package} title="Reposición">
+          <p>
+            Una vez validado el caso, te enviamos{" "}
+            <strong>una nueva prenda</strong> en óptimas condiciones, sin
+            costo adicional.
+          </p>
+        </InfoBlock>
+
+        <InfoBlock icon={AlertCircle} title="Importante">
+          <p>
+            La garantía aplica solo a defectos de confección. No cubre daños
+            por mal uso, lavado incorrecto o desgaste normal.
+          </p>
+        </InfoBlock>
       </div>
 
-      <div className="mt-10">
+      <div className="mt-14 rounded-2xl border border-blush-200 bg-blush-50 p-8 text-center">
+        <p className="font-display text-xl text-navy-700">
+          ¿Necesitas reportar un caso?
+        </p>
+        <p className="mt-2 text-sm text-navy-700/75">
+          Escríbenos por WhatsApp con tu número de pedido y las fotos del
+          defecto. Te respondemos lo antes posible.
+        </p>
         <Link
           href={whatsappLink(
-            "Hola Lindamar, necesito ayuda con un cambio o devolución.",
+            "Hola Lindamar, necesito reportar un cambio por garantía. Te envío fotos de mi prenda.",
           )}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-6 py-3 text-sm font-medium text-white transition hover:opacity-90"
+          className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#25D366] px-6 py-3 text-sm font-medium text-white transition hover:opacity-90"
         >
           <MessageCircle className="h-4 w-4" />
-          Iniciar cambio
+          Iniciar reporte
         </Link>
       </div>
-
-      <p className="mt-12 text-sm italic text-navy-700/60">
-        Política preliminar — se ajustará con la diseñadora antes del
-        lanzamiento.
-      </p>
     </section>
   );
 }
