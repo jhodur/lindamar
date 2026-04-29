@@ -426,6 +426,27 @@ export const PRODUCTOS: Producto[] = [
       "Estampado floral apasionado de rosas rojas sobre azul claro. Versión hombre.",
     tallas: TALLAS_ELLOS,
   },
+  {
+    slug: "camisa-paramo",
+    ref: "PÁRAMO",
+    nombre: "Camisa Páramo",
+    linea: "ellos",
+    categoria: "camisa",
+    precioCentavos: 12_000_000,
+    imagen: "/products/camisa-paramo.jpg",
+    imagenAlt:
+      "Camisa con estampado de flora y fauna del páramo colombiano",
+    galeria: [
+      "/products/camisa-paramo-2.jpg",
+      "/products/camisa-paramo-3.jpg",
+      "/products/camisa-paramo-4.jpg",
+      "/products/camisa-paramo-5.jpg",
+    ],
+    descripcion:
+      "Estampado inspirado en la flora y fauna del páramo colombiano — frailejones, mariposas y vegetación de altura. Para los amantes de los paisajes únicos de nuestra cordillera.",
+    tallas: TALLAS_ELLOS,
+    destacado: true,
+  },
 ];
 
 export const productosVisibles = () => PRODUCTOS.filter((p) => !p.oculto);
