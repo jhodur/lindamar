@@ -177,14 +177,14 @@ function NuestraHistoria() {
           </h2>
           <div className="mt-6 space-y-4 text-base leading-relaxed text-navy-700/85">
             <p>
-              Lindamar es una marca colombiana de ropa nacida en el Huila con
-              vocación nacional. Rendimos homenaje a la riqueza cultural y
-              geográfica de Colombia — sus paisajes, su patrimonio, su folclor.
+              Lindamar nace del <em>orgullo opita</em>, una marca de ropa que
+              rinde homenaje a las raíces de nuestro país. Cada diseño es una
+              representación viva del territorio: sus tradiciones, su folclore,
+              sus paisajes y sus celebraciones.
             </p>
-            <p>
-              Cada estampado es un pedazo de país: las estatuas de San Agustín,
-              los frailejones del páramo, el Sanjuanero, las heliconias. Piezas
-              para llevar Colombia contigo, donde quiera que vayas.
+            <p className="font-display italic text-navy-700">
+              No solo diseñamos ropa — creamos conexiones entre la moda, el
+              territorio y la identidad.
             </p>
           </div>
           <Link
