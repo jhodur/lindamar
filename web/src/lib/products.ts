@@ -447,6 +447,63 @@ export const PRODUCTOS: Producto[] = [
     tallas: TALLAS_ELLOS,
     destacado: true,
   },
+  {
+    slug: "camisa-bosque-seco-tropical",
+    ref: "BOSQUE SECO TROPICAL",
+    nombre: "Camisa Bosque Seco Tropical",
+    linea: "ellos",
+    categoria: "camisa",
+    precioCentavos: 12_000_000,
+    imagen: "/products/camisa-bosque-seco.jpg",
+    imagenAlt:
+      "Camisa con estampado de fauna y vegetación del bosque seco tropical",
+    galeria: [
+      "/products/camisa-bosque-seco-2.jpg",
+      "/products/camisa-bosque-seco-3.jpg",
+      "/products/camisa-bosque-seco-4.jpg",
+    ],
+    descripcion:
+      "Estampado inspirado en la fauna y vegetación del bosque seco tropical colombiano — uno de los ecosistemas más singulares y amenazados del país. Para llevar la huella del trópico.",
+    tallas: TALLAS_ELLOS,
+  },
+  {
+    slug: "camisa-nuestra-tierra-hombre",
+    ref: "NUESTRA TIERRA",
+    nombre: "Camisa Nuestra Tierra",
+    linea: "ellos",
+    categoria: "camisa",
+    precioCentavos: 12_000_000,
+    imagen: "/products/camisa-nuestra-tierra-hombre.jpg",
+    imagenAlt:
+      "Camisa hombre con estampado Nuestra Tierra inspirado en los paisajes andinos",
+    galeria: [
+      "/products/camisa-nuestra-tierra-hombre-2.jpg",
+      "/products/camisa-nuestra-tierra-hombre-3.jpg",
+    ],
+    descripcion:
+      "Estampado que celebra los paisajes y la vegetación de Colombia — montañas verdes, plantaciones y horizontes de nuestra tierra. Versión hombre.",
+    tallas: TALLAS_ELLOS,
+  },
+  {
+    slug: "camisa-pueblo-que-encanta",
+    ref: "PUEBLO QUE ENCANTA",
+    nombre: "Camisa Pueblo que Encanta",
+    linea: "ellos",
+    categoria: "camisa",
+    precioCentavos: 12_000_000,
+    imagen: "/products/camisa-pueblo-que-encanta.jpg",
+    imagenAlt:
+      "Camisa con estampado inspirado en los pueblos y desiertos colombianos",
+    galeria: [
+      "/products/camisa-pueblo-que-encanta-2.jpg",
+      "/products/camisa-pueblo-que-encanta-3.jpg",
+      "/products/camisa-pueblo-que-encanta-4.jpg",
+    ],
+    descripcion:
+      "Estampado inspirado en los pueblos coloridos y los paisajes desérticos del Tatacoa y la Guajira. Una camisa para los enamorados de los pueblos que enamoran.",
+    tallas: TALLAS_ELLOS,
+    destacado: true,
+  },
 ];
 
 export const productosVisibles = () => PRODUCTOS.filter((p) => !p.oculto);
