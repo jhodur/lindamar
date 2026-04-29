@@ -484,6 +484,22 @@ export const PRODUCTOS: Producto[] = [
       "Estampado que celebra los paisajes y la vegetación de Colombia — montañas verdes, plantaciones y horizontes de nuestra tierra. Versión hombre.",
     tallas: TALLAS_ELLOS,
   },
+  // PRODUCTO DE PRUEBA — oculto del catálogo, accesible por URL directa
+  // /producto/test-bold-2 para validar webhook firma. Eliminar después del test.
+  {
+    slug: "test-bold-2",
+    ref: "TEST-BOLD-2",
+    nombre: "Test Bold $1.000 — solo para validación de webhook",
+    linea: "ellas",
+    categoria: "camisa",
+    precioCentavos: 100_000, // $1.000 COP
+    imagen: "/products/camisa-aires-de-san-pedro.jpg",
+    imagenAlt: "Producto temporal para test de webhook Bold",
+    descripcion:
+      "Producto de prueba para validar que el webhook de Bold se firma correctamente. NO es un producto real. Si lo compras por error, escríbenos por WhatsApp y reembolsamos.",
+    tallas: ["Única"],
+    oculto: true,
+  },
   {
     slug: "camisa-pueblo-que-encanta",
     ref: "PUEBLO QUE ENCANTA",
