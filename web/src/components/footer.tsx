@@ -37,8 +37,12 @@ export function Footer() {
             Amor por el Terruño
           </p>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-navy-700/80">
-            Diseño colombiano con identidad cultural. Cada prenda cuenta una
-            historia de nuestra tierra.
+            Diseño opita con identidad cultural colombiana, inspirado en las
+            raíces, tradiciones y esencia de nuestro territorio.
+          </p>
+          <p className="mt-3 max-w-xs text-sm italic leading-relaxed text-navy-700/70">
+            Prendas que fusionan historia y estilo, contando lo que llevas
+            dentro.
           </p>
         </div>
 
